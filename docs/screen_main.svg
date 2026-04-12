@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="320" height="240">
+<!-- bg -->
+<rect width="320" height="240" fill="#000000"/>
+
+<!-- Status bar -->
+<rect x="0" y="0" width="320" height="22" fill="#2C2C2C"/>
+<text x="6" y="15" fill="#00CC44" font-size="13" font-weight="400" font-family="'Segoe UI',Arial,sans-serif">✓ ATU  -35dBm</text>
+<rect x="246" y="0" width="74" height="22" fill="#444444"/>
+<text x="283" y="15" text-anchor="middle" dominant-baseline="middle" fill="#000000" font-size="12" font-weight="bold" font-family="'Segoe UI',Arial,sans-serif">CONFIG</text>
+
+<!-- sep y=22 -->
+<rect x="0" y="22" width="320" height="1" fill="#2C2C58"/>
+
+<!-- PWR panel -->
+<text x="76" y="37" text-anchor="middle" fill="#8585B1" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">PWR</text>
+<text x="76" y="92" text-anchor="middle" fill="#FFFFFF" font-size="40" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">42</text>
+<!-- PWR bar -->
+<rect x="11" y="121" width="130" height="8" rx="2" fill="#2C2C2C"/>
+<rect x="11" y="121" width="55" height="8" rx="2" fill="#00CC44"/>
+
+<!-- sep vertical -->
+<rect x="152" y="23" width="1" height="110" fill="#2C2C58"/>
+
+<!-- SWR panel -->
+<text x="236" y="37" text-anchor="middle" fill="#8585B1" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">SWR</text>
+<text x="236" y="92" text-anchor="middle" fill="#00CC44" font-size="40" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">1.02</text>
+<!-- SWR bar -->
+<rect x="164" y="121" width="145" height="8" rx="2" fill="#2C2C2C"/>
+<rect x="164" y="121" width="36"  height="8" rx="2" fill="#00CC44"/>
+
+<!-- sep y=133 -->
+<rect x="0" y="133" width="320" height="1" fill="#2C2C58"/>
+
+<!-- Relay label -->
+<text x="6" y="148" fill="#FFFFFF" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">C:289pF   L:0.45µH   CL Filter</text>
+
+<!-- sep y=160 -->
+<rect x="0" y="160" width="320" height="1" fill="#2C2C58"/>
+
+<!-- Band nav -->
+<rect x="0"   y="163" width="74" height="32" rx="3" fill="#255325"/>
+<text x="37"  y="182" text-anchor="middle" fill="#000000" font-size="16" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">&lt;&lt;</text>
+<text x="160" y="183" text-anchor="middle" fill="#58DDFF" font-size="22" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">14 MHz</text>
+<rect x="246" y="163" width="74" height="32" rx="3" fill="#255325"/>
+<text x="283" y="182" text-anchor="middle" fill="#000000" font-size="16" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">&gt;&gt;</text>
+
+<!-- sep y=198 -->
+<rect x="0" y="198" width="320" height="1" fill="#2C2C58"/>
+
+<!-- TUNE button -->
+<rect x="0"   y="201" width="194" height="35" rx="6" fill="#0E6AC5"/>
+<text x="97"  y="222" text-anchor="middle" fill="#000000" font-size="15" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">TUNE</text>
+
+<!-- SAVE button -->
+<rect x="198" y="201" width="122" height="35" rx="6" fill="#0E6AC5"/>
+<text x="259" y="222" text-anchor="middle" fill="#000000" font-size="15" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">SAVE (6)</text>
+
+</svg>

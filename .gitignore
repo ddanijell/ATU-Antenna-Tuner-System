@@ -1,0 +1,38 @@
+# ── MPLAB X build output ──────────────────────────
+ATU100_NEW/dist/
+ATU100_NEW/build/
+ATU130_NEW/dist/
+ATU130_NEW/build/
+
+# MPLAB private project settings (machine-specific paths)
+ATU100_NEW/nbproject/private/
+ATU130_NEW/nbproject/private/
+
+# ── Arduino / ESP32 ───────────────────────────────
+build/
+.arduino15/
+TFT_config_source/
+*.elf
+*.bin
+*.hex
+*.map
+
+# ── OTA backup (generated on device) ─────────────
+firmware.bak
+
+# ── OS ───────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor ───────────────────────────────────────
+.vscode/
+*.swp
+*~
+
+# ── Claude Code ──────────────────────────────────
+.claude/
+CLAUDE.md
+
+# ── Presentation (local only) ────────────────────
+Presentation/

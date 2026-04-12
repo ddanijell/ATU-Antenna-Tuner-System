@@ -1,0 +1,25 @@
+I/O linije
+ Relej - Referenca
+
+prebacivanje grupe kondenzatora
+ Cap_sw - LATCbits.LATC0
+
+kondenzatori pojedinacno
+ Cap_10 - LATCbits.LATC7
+ Cap_22 - LATCbits.LATC3 
+ Cap_47 - LATCbits.LATC6 
+ Cap_100 - LATCbits.LATC2 
+ Cap_220 - LATCbits.LATC5 
+ Cap_470 - LATCbits.LATC1 
+ Cap_1000 - LATCbits.LATC4 
+
+induktivnosti pojedinacno
+ Ind_005 - LATBbits.LATB3 
+ Ind_011 - LATAbits.LATA2 
+ Ind_022 - LATBbits.LATB4 
+ Ind_045 - LATAbits.LATA3 
+ Ind_1 - LATBbits.LATB5 
+ Ind_22 - LATAbits.LATA5 
+ Ind_45 - LATAbits.LATA4 
+
+

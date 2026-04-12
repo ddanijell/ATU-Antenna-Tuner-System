@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="320" height="240">
+<!-- bg -->
+<rect width="320" height="240" fill="#000000"/>
+
+<!-- Header -->
+<rect x="0" y="0" width="320" height="30" fill="#2C2C2C"/>
+<rect x="0"   y="0" width="80"  height="30" rx="6" fill="#444444"/>
+<text x="40"  y="19" text-anchor="middle" fill="#000000" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">← Back</text>
+<text x="160" y="19" text-anchor="middle" fill="#00CC44" font-size="13" font-family="'Segoe UI',Arial,sans-serif">✓ ATU  -35dBm</text>
+<rect x="240" y="0" width="80"  height="30" rx="6" fill="#444444"/>
+<text x="280" y="19" text-anchor="middle" fill="#000000" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">Next →</text>
+
+<!-- sep y=30 -->
+<rect x="0" y="30" width="320" height="1" fill="#2C2C58"/>
+
+<!-- L row -->
+<rect x="6"   y="33" width="58" height="36" rx="4" fill="#255325"/>
+<text x="35"  y="55" text-anchor="middle" fill="#000000" font-size="16" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">L-</text>
+<text x="160" y="58" text-anchor="middle" fill="#44DD88" font-size="28" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">0.45 uH</text>
+<rect x="256" y="33" width="58" height="36" rx="4" fill="#255325"/>
+<text x="285" y="55" text-anchor="middle" fill="#000000" font-size="16" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">L+</text>
+
+<!-- sep y=73 -->
+<rect x="0" y="73" width="320" height="1" fill="#2C2C58"/>
+
+<!-- L slider -->
+<rect x="26" y="82" width="268" height="12" rx="6" fill="#2C2C2C"/>
+<rect x="26" y="82" width="32"  height="12" rx="6" fill="#2C6F2C"/>
+<circle cx="58" cy="88" r="9" fill="#B1FFB1"/>
+
+<!-- sep y=114 -->
+<rect x="0" y="114" width="320" height="1" fill="#2C2C58"/>
+
+<!-- C row -->
+<rect x="6"   y="117" width="58" height="36" rx="4" fill="#255325"/>
+<text x="35"  y="139" text-anchor="middle" fill="#000000" font-size="16" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">C-</text>
+<text x="160" y="142" text-anchor="middle" fill="#58B1FF" font-size="28" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">289 pF</text>
+<rect x="256" y="117" width="58" height="36" rx="4" fill="#255325"/>
+<text x="285" y="139" text-anchor="middle" fill="#000000" font-size="16" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">C+</text>
+
+<!-- sep y=157 -->
+<rect x="0" y="157" width="320" height="1" fill="#2C2C58"/>
+
+<!-- C slider -->
+<rect x="26" y="163" width="268" height="12" rx="6" fill="#2C2C2C"/>
+<rect x="26" y="163" width="75"  height="12" rx="6" fill="#222C6F"/>
+<circle cx="101" cy="169" r="9" fill="#B1DDFF"/>
+
+<!-- sep y=194 -->
+<rect x="0" y="194" width="320" height="1" fill="#2C2C58"/>
+
+<!-- Bottom buttons -->
+<rect x="0"   y="200" width="104" height="36" rx="6" fill="#0E6AC5"/>
+<text x="52"  y="222" text-anchor="middle" fill="#000000" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">CL Filter</text>
+<rect x="108" y="200" width="104" height="36" rx="6" fill="#0E6AC5"/>
+<text x="160" y="222" text-anchor="middle" fill="#000000" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">bypass OFF</text>
+<rect x="216" y="200" width="104" height="36" rx="6" fill="#0E6AC5"/>
+<text x="268" y="222" text-anchor="middle" fill="#000000" font-size="13" font-weight="600" font-family="'Segoe UI',Arial,sans-serif">Reboot ATU</text>
+
+</svg>

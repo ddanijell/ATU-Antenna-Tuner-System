@@ -2,6 +2,10 @@
 
 > Real-time PWR/SWR telemetry, wireless remote control and full touch GUI upgrade for ATU100/ATU130 antenna tuners.
 
+![In action — 14 MHz](Photo/InAction_14MHz.jpg)
+
+> More photos available in the [Photo](Photo/) folder.
+
 ---
 
 ## System Architecture

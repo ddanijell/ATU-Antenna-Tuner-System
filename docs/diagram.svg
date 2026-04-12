@@ -86,7 +86,7 @@
 <path d="M544,125 A11,11 0 0,0 566,125" fill="none" stroke="#58DDFF" stroke-width="2.5" stroke-linecap="round"/>
 <path d="M536,125 A19,19 0 0,0 574,125" fill="none" stroke="#58DDFF" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
 <path d="M527,125 A28,28 0 0,0 583,125" fill="none" stroke="#58DDFF" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
-<text x="555" y="148" text-anchor="middle" fill="#666688" font-size="9" font-family="Arial,sans-serif">ESP-NOW</text>
+<text x="555" y="88" text-anchor="middle" fill="#666688" font-size="9" font-family="Arial,sans-serif">ESP-NOW</text>
 
 <!-- ── ATU Display box ── -->
 <rect x="604" y="8" width="152" height="194" rx="6" fill="#161628" stroke="#2C2C58" stroke-width="1"/>

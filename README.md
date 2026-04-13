@@ -1,6 +1,6 @@
-# ATU Antenna Tuner System
+# ATU Remote Control System
 
-> Real-time PWR/SWR telemetry, wireless remote control and full touch GUI upgrade for ATU100/ATU130 antenna tuners.
+> HF antenna tuner upgrade — wireless remote control, real-time PWR/SWR telemetry, manual L/C tuning and full touch GUI for ATU100/ATU130.
 
 ![In action — 14 MHz](Photo/InAction_14MHz.jpg)
 
@@ -24,7 +24,7 @@
 
 ## About
 
-This system is an upgrade for the existing [ATU100/ATU130](https://github.com/Dfinitski/N7DDC-ATU-100-mini-and-extended-boards) antenna tuners by N7DDC. In their original form these tuners have no band memory, no manual L/C fine-tuning, and no way to be positioned at the antenna feed point — since in that case there is no control interface and no way to monitor PWR and SWR. This project adds:
+This system is an upgrade for the existing [ATU100/ATU130](https://github.com/Dfinitski/N7DDC-ATU-100-mini-and-extended-boards) antenna tuners by N7DDC. In their original form these tuners have no band memory, no manual L/C fine-tuning, no remote control interface and no way to be positioned at the antenna feed point — since in that case there is no control interface and no way to monitor PWR and SWR. This project adds:
 
 - **Wireless remote control** via ESP-NOW
 - **Real-time PWR and SWR telemetry** on the display
@@ -159,4 +159,4 @@ STL files for the enclosure are in the `3D_Print_Housing/` folder.
 
 ---
 
-*Ham Radio · PIC + ESP32 · LVGL · ESP-NOW · 2025–2026 · AI-assisted development*
+*HF Ham Radio · PIC + ESP32 · LVGL · ESP-NOW · 2025–2026 · AI-assisted development*

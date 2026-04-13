@@ -209,6 +209,18 @@ static void gui_update_tune_btn(void) {
     lv_obj_set_style_bg_color(btn, lv_color_hex(col), LV_STATE_PRESSED);
 }
 
+static void gui_update_bat(void) {
+    if (!lbl_bat) return;
+    float v = read_bat_voltage();
+    char buf[10];
+    snprintf(buf, sizeof(buf), "%.2fV", v);
+    lv_label_set_text(lbl_bat, buf);
+    lv_color_t c = (v > 3.8f) ? lv_color_hex(0x00CC44) :
+                   (v > 3.5f) ? lv_color_hex(0xFFAA00) :
+                                 lv_color_hex(0xFF2200);
+    lv_obj_set_style_text_color(lbl_bat, c, 0);
+}
+
 // ============================================================
 // CAL EDIT helpers
 // ============================================================

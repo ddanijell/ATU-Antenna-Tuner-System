@@ -55,6 +55,12 @@ static void send_cmd(const char *cmd) {
     Serial.printf("[TX] %s", cmd);
 }
 
+static void send_ping(void) {
+    if (!is_paired) return;
+    uint8_t pkt[2] = { ESPNOW_MAGIC, ESPNOW_TYPE_PING };
+    esp_now_send(paired_mac, pkt, 2);
+}
+
 static void send_ann_reply(const uint8_t *dest_mac) {
     uint8_t pkt[8];
     pkt[0] = ESPNOW_MAGIC;
@@ -87,9 +93,13 @@ static void on_data_recv(const esp_now_recv_info_t *info, const uint8_t *data, i
     // Uparen: prihvati samo od paired_mac
     if (memcmp(info->src_addr, paired_mac, 6) != 0) return;
 
-    if (len < 3) return;
     last_rx_ms = millis();
     if (info->rx_ctrl) g_rssi = (int8_t)info->rx_ctrl->rssi;
+
+    // PONG: samo azurira last_rx_ms i rssi (vec urađeno iznad), nema payloada
+    if (type == ESPNOW_TYPE_PONG) return;
+
+    if (len < 3) return;
     int mlen = len-2; if(mlen>62) mlen=62;
     if (type == ESPNOW_TYPE_PWR) {
         memcpy(pwr_buf, &data[2], mlen); pwr_buf[mlen]='\0'; new_pwr=true;

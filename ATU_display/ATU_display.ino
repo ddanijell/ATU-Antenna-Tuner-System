@@ -38,6 +38,9 @@
 
 
 
+// Baterija
+#define BAT_PIN         35   // ADC1_CH7, input-only, deljac 470k/100k
+
 // SD kartica
 #define SD_MOSI         23
 #define SD_MISO         19
@@ -60,6 +63,8 @@ static SPIClass sdSPI(VSPI);   // VSPI - sekvencijalno sa touchscreenom, nema ko
 #define ESPNOW_TYPE_CMD  0x03
 #define ESPNOW_TYPE_TUNE 0x04
 #define ESPNOW_TYPE_ANN  0x05    // Announce/pairing: payload = 6-byte MAC
+#define ESPNOW_TYPE_PING 0x06    // Ping: Display -> Transiver (no payload)
+#define ESPNOW_TYPE_PONG 0x07    // Pong: Transiver -> Display (no payload)
 #define ESPNOW_CHANNEL   14
 static uint8_t broadcast_mac[] = { 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF };
 
@@ -125,7 +130,7 @@ static CalData  g_cal       = {};
 static bool     g_cal_valid = false;
 static uint32_t last_rx_ms  = 0;   // zadnji primljeni paket
 static uint32_t last_hb_ms  = 0;   // zadnji heartbeat poslan
-#define CONNECTED_TIMEOUT_MS  60000
+#define CONNECTED_TIMEOUT_MS  15000
 #define HEARTBEAT_MS          30000
 
 // Thread-safe bufer
@@ -186,6 +191,13 @@ static void bl_init(void) {
         .flags={.output_invert=0} };
     ledc_channel_config(&ch);
 }
+static float read_bat_voltage(void) {
+    uint32_t sum = 0;
+    for (int i = 0; i < 16; i++) sum += analogReadMilliVolts(BAT_PIN);
+    float v_pin_mv = sum / 16.0f;
+    return v_pin_mv * 5.7f / 1000.0f;  // mV->V, deljac 470k/100k, faktor 5.7
+}
+
 static void bl_set(int v) {
     v = v < 0 ? 0 : v > 255 ? 255 : v;
     g_brightness = v;
@@ -210,6 +222,7 @@ static lv_obj_t *bar_pwr;
 static lv_obj_t *bar_swr;
 static lv_obj_t *lbl_relay;
 static lv_obj_t *lbl_band_freq;
+static lv_obj_t *lbl_bat;
 
 // --- Main screen - TUNE dugme label ---
 static lv_obj_t *lbl_tune_btn;
@@ -329,6 +342,7 @@ void setup() {
 
     espnow_init();
     gui_update_pair_btn();  // osvjezi nakon sto espnow_init ucita NVS
+    gui_update_bat();       // prvi ocitaj baterije odmah pri startu
     delay(500);
     send_cmd("V0\r");
     delay(200);
@@ -406,6 +420,20 @@ void loop() {
     if (now - prev_status > 2000) {
         prev_status = now;
         gui_update_status();
+    }
+
+    // Ocitaj napon baterije svakih 10s
+    static uint32_t prev_bat = 0;
+    if (now - prev_bat > 10000) {
+        prev_bat = now;
+        gui_update_bat();
+    }
+
+    // PING svakih 5s za monitoring konekcije
+    static uint32_t prev_ping = 0;
+    if (is_paired && (now - prev_ping > 5000)) {
+        prev_ping = now;
+        send_ping();
     }
 
 

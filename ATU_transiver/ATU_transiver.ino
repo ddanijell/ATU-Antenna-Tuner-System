@@ -42,6 +42,8 @@
 #define ESPNOW_TYPE_CMD     0x03    // komanda prema ATU
 #define ESPNOW_TYPE_TUNE    0x04    // $TUNE:x
 #define ESPNOW_TYPE_ANN     0x05    // Announce/pairing: payload = 6-byte MAC
+#define ESPNOW_TYPE_PING    0x06    // Ping: Display -> Transiver (no payload)
+#define ESPNOW_TYPE_PONG    0x07    // Pong: Transiver -> Display (no payload)
 #define ESPNOW_TYPE_OTHER   0x00
 
 // Broadcast MAC
@@ -110,6 +112,14 @@ static void add_unicast_peer(const uint8_t *mac) {
 }
 
 // ============================================================
+// Salje PONG unicast na display
+// ============================================================
+static void send_pong(const uint8_t *dest_mac) {
+    uint8_t pkt[2] = { ESPNOW_MAGIC, ESPNOW_TYPE_PONG };
+    esp_now_send(dest_mac, pkt, 2);
+}
+
+// ============================================================
 // Salje ANNOUNCE broadcast (vlastiti MAC kao payload)
 // ============================================================
 static void send_announce(void) {
@@ -169,8 +179,6 @@ static void on_data_recv(const esp_now_recv_info_t *info, const uint8_t *data, i
         return;
     }
 
-    if (len < 3) return;
-
     // Dok nije uparen ne prihvataj nista osim ANN (vec obradjen iznad)
     if (!is_paired) return;
 
@@ -179,6 +187,14 @@ static void on_data_recv(const esp_now_recv_info_t *info, const uint8_t *data, i
         DBG_SERIAL.printf("[WARN] Odbijen paket od nepoznatog MAC\n");
         return;
     }
+
+    // PING: odmah vrati PONG, ne proslijedjuj ATU
+    if (type == ESPNOW_TYPE_PING) {
+        send_pong(paired_mac);
+        return;
+    }
+
+    if (len < 3) return;
 
     const uint8_t *msg     = &data[2];
     int            msg_len = len - 2;

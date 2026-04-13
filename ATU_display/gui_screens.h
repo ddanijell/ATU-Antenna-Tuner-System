@@ -28,6 +28,11 @@ static void create_main_screen(void) {
     lv_obj_align(lbl_ovr, LV_ALIGN_RIGHT_MID, -78, 0);
     lv_label_set_text(lbl_ovr, "");
 
+    lbl_bat = lv_label_create(sb);
+    lv_obj_set_style_text_font(lbl_bat, &lv_font_montserrat_16, 0);
+    lv_obj_align(lbl_bat, LV_ALIGN_RIGHT_MID, -120, 0);
+    lv_label_set_text(lbl_bat, "");
+
     // CONFIG dugme – gore desno u status baru
     lv_obj_t *btn_cfg_top = make_btn(sb, "CONFIG", 246, 0, 74, 22, 0x2A2A2A, cb_config);
     lv_obj_set_style_text_font(lv_obj_get_child(btn_cfg_top, 0), &lv_font_montserrat_sb_16, 0);

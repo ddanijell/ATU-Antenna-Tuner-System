@@ -31,6 +31,8 @@ This system is an upgrade for the existing [ATU100/ATU130](https://github.com/Df
 - **30 memory slots** (11 currently in use — one per amateur band)
 - **Full touch GUI** — manual L/C adjustment, relay visualisation, cal parameter editing
 - **SD card OTA** firmware update
+- **Battery voltage monitoring** — GPIO 35 ADC, 470k/100k divider, shown in status bar
+- **PING/PONG keepalive** — link health monitoring every 5 s without UART traffic
 
 ---
 
@@ -50,6 +52,7 @@ This system is an upgrade for the existing [ATU100/ATU130](https://github.com/Df
 | Display panel | ST7789 · 3.2″ IPS · 320×240 · backlight PWM GPIO27 |
 | Touch controller | XPT2046 · shared HSPI · CS=GPIO33 |
 | GUI framework | LVGL 9.2 · Montserrat SemiBold 16/20/24/28 pt |
+| Battery monitor | GPIO 35 (ADC1_CH7) · 470 kΩ / 100 kΩ divider · `analogReadMilliVolts()` · shown in status bar |
 | Power | 12V DC |
 
 ---
@@ -65,6 +68,8 @@ Packet format: `[0xAA][TYPE][payload...]`
 | `0x03` CMD | Display → ATU | command string |
 | `0x04` `$TUNE` | ATU → Display | tuning status code (0–15) |
 | `0x05` ANN | both | pairing announce, 6-byte MAC |
+| `0x06` PING | Display → Transiver | keepalive ping, no payload |
+| `0x07` PONG | Transiver → Display | keepalive pong, no payload |
 
 > SWR is transmitted as `int × 100` (e.g., 125 = 1.25).
 
